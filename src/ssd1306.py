@@ -1,6 +1,9 @@
 from micropython import const
 import framebuf
 
+
+#biblioteca para controle de display oled
+
 SET_CONTRAST = const(0x81)
 SET_ENTIRE_ON = const(0xa4)
 SET_NORM_INV = const(0xa6)
