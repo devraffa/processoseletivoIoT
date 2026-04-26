@@ -101,10 +101,5 @@
     [ "bb1:tn.15", "bz1:1", "black", [ "v-153.7", "h-0.8" ] ],
     [ "esp:27", "bz1:2", "red", [ "v-163.05", "h48" ] ]
   ],
-  "dependencies": {},
-  "files": [
-    "src/main.py",
-    "src/ssd1306.py",
-    "src/verLog.py"
-  ]
+  "dependencies": {}
 }
