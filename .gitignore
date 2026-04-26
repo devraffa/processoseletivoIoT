@@ -1,1 +1,13 @@
 .env
+# (não subir o log de testes)
+*.log
+eventos.log
+
+# arquivos gerados pelo Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Arquivos de Sistema Operacional
+.DS_Store
+Thumbs.db
