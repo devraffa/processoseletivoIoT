@@ -2,7 +2,7 @@ from micropython import const
 import framebuf
 
 
-#biblioteca para controle de display oled
+# biblioteca para controle de display oled
 
 SET_CONTRAST = const(0x81)
 SET_ENTIRE_ON = const(0xa4)
@@ -36,7 +36,7 @@ class SSD1306_I2C:
         self.i2c.writeto(self.addr, bytearray([0x80, cmd]))
 
     def write_data(self, buf):
-        self.i2c.writeto(self.addr, b'\x40' + buf)
+        self.i2c.writeto(self.addr, bytearray([0x40]) + buf)
 
     def init_display(self):
         for cmd in (

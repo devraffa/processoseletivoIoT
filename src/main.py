@@ -1,6 +1,6 @@
 import machine
 import time
-import ssd1306
+from ssd1306 import SSD1306_I2C
 import os
 
 # configuração de pinos, na placa esp32
@@ -25,7 +25,7 @@ buzzer.duty(0)      # começa desligado
 
 # configuração de display oled
 i2c = machine.I2C(0, sda=machine.Pin(I2C_SDA_PIN), scl=machine.Pin(I2C_SCL_PIN), freq=400000)
-oled = ssd1306.SSD1306_I2C(128, 64, i2c)
+oled = SSD1306_I2C(128, 64, i2c)
 
 # todas as distancias em centimetros
 DIST_CRITICA = 20.0  
