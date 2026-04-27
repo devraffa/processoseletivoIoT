@@ -3,7 +3,7 @@
 
 ## 📝 Relatório do Candidato
 
-## Nome do Projeto: 
+## Nome do Projeto: Alerta e Prevenção de Acidentes Industriais
 
 ### 👤 Identificação do Candidato
 
@@ -44,30 +44,17 @@ Otimização de Renderização (Anti-Flickering): Para não sobrecarregar o barr
 
 Gestão de Dados e Logs: O sistema atua como um buffer de borda. Quando um evento de risco ocorre (Atenção ou Perigo), os dados são estruturados e persistidos no arquivo eventos.log. Essa formatação padronizada e descentralizada prepara o terreno para uma futura escalabilidade da arquitetura de backend, permitindo fácil ingestão desses dados por serviços de mensageria na nuvem ou sistemas distribuídos de processamento em tempo real.
 
+```mermaid
 graph TD
-    
-    %% Entradas
-    A([⏱️ Loop 100ms]) --> B[Sensor HC-SR04]
-    B -->|Retorna Distância| C{Máquina de Estados}
-    
-    %% Processamento
-    C -->|Dist > 60| D(SEGURO)
-    C -->|20 < Dist <= 60| E(ATENÇÃO)
-    C -->|Dist <= 20| F(PERIGO)
-    C -->|Inválido/Longe| G(INATIVO)
-    
-    %% Saídas de Hardware
-    D -->|LED Verde| H[Atuadores GPIO]
-    E -->|LED Amarelo| H
-    F -->|LED Vermelho + Buzzer PWM| H
-    G -->|Desliga Tudo| H
-    
-    %% Saídas de Software e IHM
-    H --> I[Filtro Anti-Flickering]
-    I -->|> 0.5cm de variação| J[Display OLED SSD1306]
-    E -.->|Grava Risco Local| K[(eventos.log)]
-    F -.->|Grava Acidente Local| K
-
+    A[Início: Configura ESP32 GPIOs e Tela OLED] --> B[Leitura do Sensor HC-SR04]
+    B --> C[Avaliação do Status pela Distância]
+    C --> D[Aciona Atuadores: LEDs RGB e Buzzer]
+    C --> E[Atualiza Distância e Status no OLED]
+    D --> F[Grava Log de Segurança]
+    E --> F
+    F --> G[Espera Não-Bloqueante 100ms]
+    G --> B
+```
 ---
 
 ## 3️⃣ Componentes Utilizados na Simulação
