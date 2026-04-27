@@ -62,6 +62,8 @@ graph TD
 ![Esquema de Ligação do Circuito no Wokwi](./img/diagrama.png)
 *> Representação visual do circuito montado no simulador Wokwi.*
 
+*> Link wokwi: https://wokwi.com/projects/462314709178730497*
+
 | Componente | Função no Sistema | Conexão ESP32 |
 | :--- | :--- | :--- |
 | **ESP32 DevKit V4** | Unidade de Processamento Central, controle da FSM e gravação de logs. | - |
